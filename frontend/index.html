@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ecommerce App</title>
+</head>
+<body>
+  <h1>Products</h1>
+  <ul id="products"></ul>
+
+  <script>
+    fetch("http://localhost:8080/products")
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById("products");
+        data.forEach(p => {
+          const li = document.createElement("li");
+          li.innerText = p;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
+
